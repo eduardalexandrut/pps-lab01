@@ -16,7 +16,7 @@ class SimpleBankAccountTest {
     @BeforeEach
     void beforeEach(){
         accountHolder = new AccountHolder("Mario", "Rossi", 1);
-        bankAccount = new SimpleBankAccount(accountHolder, 0);
+        bankAccount = new SimpleBankAccount(accountHolder, SimpleBankAccount.INITIAL_BALANCE);
     }
 
     @Test

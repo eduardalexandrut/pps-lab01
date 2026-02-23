@@ -9,6 +9,7 @@ public class SimpleBankAccount implements BankAccount {
 
     private double balance;
     private final AccountHolder holder;
+    public static final int INITIAL_BALANCE = 0;
 
     public SimpleBankAccount(final AccountHolder holder, final double balance) {
         this.holder = holder;
