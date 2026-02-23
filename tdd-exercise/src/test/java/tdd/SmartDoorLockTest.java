@@ -46,14 +46,14 @@ public class SmartDoorLockTest {
     }
 
     @Test
-    public void doorCanBeLockedOnlyIfThereIsAPin() {
+    public void doorShouldBeLockedOnlyIfThereIsAPin() {
         assertThrows(IllegalStateException.class, () -> {
             door.lock();
         });
     }
 
     @Test
-    public void doorIsUnlockedIfThePinIsCorrect() {
+    public void doorShoulfUnlockIfThePinIsCorrect() {
         door.setPin(LONG_ENOUGH_PIN);
         door.lock();
         door.unlock(LONG_ENOUGH_PIN);
@@ -61,7 +61,7 @@ public class SmartDoorLockTest {
     }
 
     @Test
-    public void doorRemainsLockedIfThePinIsWrong() {
+    public void doorShouldRemainLockedIfThePinIsWrong() {
         door.setPin(LONG_ENOUGH_PIN);
         door.lock();
         door.unlock(WRONG_PIN);
@@ -69,7 +69,7 @@ public class SmartDoorLockTest {
     }
 
     @Test
-    public void attemptsFailedIncreaseIfThePinIsWrong() {
+    public void attemptsFailedShouldIncreaseIfThePinIsWrong() {
         final var attemptsFailed = door.getFailedAttempts();
         door.setPin(LONG_ENOUGH_PIN);
         door.lock();
@@ -78,7 +78,7 @@ public class SmartDoorLockTest {
     }
 
     @Test
-    public void doorIsBlockedIfTheNumberOfAttemptsExcedeMaximum() {
+    public void doorShouldBeBlockedIfTheNumberOfAttemptsExcedeMaximum() {
         final var maxAttempts = door.getMaxAttempts();
         door.setPin(LONG_ENOUGH_PIN);
         door.lock();
@@ -91,7 +91,7 @@ public class SmartDoorLockTest {
     }
 
     @Test
-    public void resetOpensTheDoorLock() {
+    public void resetShouldOpenTheLock() {
         final var maxAttempts = door.getMaxAttempts();
         door.setPin(LONG_ENOUGH_PIN);
         door.lock();
