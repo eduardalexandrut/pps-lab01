@@ -36,4 +36,20 @@ class MinMaxStackImplTest {
         Assertions.assertEquals(elementToPeek, stack.peek());
         Assertions.assertEquals(size, stack.size());
     }
+
+    @Test
+    public void popOfAllElementsShouldLeaveTheStackEmpty() {
+        final var elementToPush = 1;
+        final var numberOfElementsToPush = 10;
+
+        for (int i = 0; i < numberOfElementsToPush; i++) {
+            stack.push(elementToPush);
+        }
+
+        for (int i = 0; i < numberOfElementsToPush; i++) {
+            stack.pop();
+        }
+
+        Assertions.assertTrue(stack.isEmpty());
+    }
 }
