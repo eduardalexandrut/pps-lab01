@@ -35,7 +35,7 @@ public class MinMaxStackImpl implements MinMaxStack {
 
     @Override
     public int getMax() {
-        return 0;
+        return stack.peek().max;
     }
 
     @Override
