@@ -17,7 +17,23 @@ class MinMaxStackImplTest {
     @Test
     public void pushShouldAddAnElementOnTop() {
         final var elementToAdd = 1;
-        stack.push(1);
+        stack.push(elementToAdd);
         Assertions.assertEquals(elementToAdd, stack.peek());
+    }
+
+    @Test
+    public void popShouldReturnTheElementOnTop() {
+        final var elementToPop = 1;
+        stack.push(elementToPop);
+        Assertions.assertEquals(elementToPop, stack.pop());
+    }
+
+    @Test
+    public void peekShouldShowTheElementOnTopButNotRemoveIt() {
+        final var elementToPeek = 1;
+        stack.push(elementToPeek);
+        final var size = stack.size();
+        Assertions.assertEquals(elementToPeek, stack.peek());
+        Assertions.assertEquals(size, stack.size());
     }
 }
