@@ -52,4 +52,15 @@ class MinMaxStackImplTest {
 
         Assertions.assertTrue(stack.isEmpty());
     }
+
+    @Test
+    public void getMinShouldReturnTheMin() {
+        final var minElement = 1;
+
+        for  (int i = 1; i < 10; i++) {
+            stack.push(i);
+        }
+
+        Assertions.assertEquals(minElement, stack.getMin());
+    }
 }
