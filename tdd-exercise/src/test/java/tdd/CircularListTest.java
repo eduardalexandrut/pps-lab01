@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 import java.util.stream.IntStream;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
@@ -67,6 +68,11 @@ public class CircularListTest {
         }
 
         Assertions.assertEquals(MAX_CAPACITY, this.queue.size());
+    }
+
+    @Test
+    public void queDequeueOnEmptyQueueShouldRaiseError() {
+        assertThrows(IllegalStateException.class, () -> {final var element =  this.queue.dequeue();});
     }
 
 

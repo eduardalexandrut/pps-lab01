@@ -31,6 +31,9 @@ public class CircularQueueImpl implements CircularQueue {
 
     @Override
     public int dequeue() {
+        if (isEmpty()) {
+            throw new IllegalStateException("Queue is empty");
+        }
         final int enqueuedElement = this.items[front];
         front = (front + 1) % capacity;
         size = size - 1;

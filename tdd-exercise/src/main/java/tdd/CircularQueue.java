@@ -32,6 +32,7 @@ public interface CircularQueue {
      * Returns the element from the front of the queue
      *
      * @return element from the front of the queue
+     * @throws IllegalStateException if the queue is empty
      */
     int dequeue();
 
