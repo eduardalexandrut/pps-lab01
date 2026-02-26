@@ -4,6 +4,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+import java.util.stream.IntStream;
+
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
@@ -37,5 +40,21 @@ public class CircularListTest {
         final int dequeuedElement = this.queue.dequeue();
         Assertions.assertEquals(elementToPush, dequeuedElement);
     }
+
+    @Test
+    public void queShouldRemoveTheOldestElementWhenWeExceedingTheCapacity() {
+        final List<Integer> numbersToAdd = IntStream.rangeClosed(0, MAX_CAPACITY)
+                .boxed()
+                .toList();
+        final int newNumberAtTheFront = 5;
+
+        for (final var number : numbersToAdd) {
+            this.queue.enqueue(number);
+        }
+
+        this.queue.enqueue(newNumberAtTheFront);
+        Assertions.assertEquals(newNumberAtTheFront, this.queue.peek());
+    }
+
 
 }
