@@ -9,13 +9,27 @@ public class CircularQueueImpl implements CircularQueue {
 
     public CircularQueueImpl(int capacity) {
         this.capacity = capacity;
-        items = new int[capacity];
-        size = 0;
+        this.items = new int[capacity];
+        this.size = 0;
+        this.front = 0;
+        this.rear = -1;
     }
 
     @Override
     public boolean isEmpty() {
         return size == 0;
+    }
+
+    @Override
+    public void enqueue(int element) {
+        rear = (rear + 1) % capacity;
+        this.items[rear] = element;
+        size = size + 1;
+    }
+
+    @Override
+    public int peek() {
+        return this.items[front];
     }
 
 }

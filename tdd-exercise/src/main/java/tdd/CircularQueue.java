@@ -20,4 +20,18 @@ public interface CircularQueue {
      * @return true if the queue is empty, false otherwise
      */
     boolean isEmpty();
+
+    /**
+     * Adds an element to the rear of the queue
+     *
+     * @param element to be added
+     */
+    void enqueue(int element);
+
+    /**
+     * Should show the element at the front of the queue.
+     *
+     * @return the element at the front of the queue
+     */
+    int peek();
 }
