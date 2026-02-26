@@ -41,4 +41,11 @@ public interface CircularQueue {
      * @return the element at the front of the queue
      */
     int peek();
+
+    /**
+     * Should show the number of elements in the queue.
+     *
+     * @return the number of elements in the queue
+     */
+    int size();
 }

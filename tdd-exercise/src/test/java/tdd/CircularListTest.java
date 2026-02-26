@@ -56,5 +56,18 @@ public class CircularListTest {
         Assertions.assertEquals(newNumberAtTheFront, this.queue.peek());
     }
 
+    @Test
+    public void queSizeShouldNeverExceedTheCapacity() {
+        final List<Integer> numbersToAdd = IntStream.rangeClosed(0, MAX_CAPACITY * MAX_CAPACITY)
+                .boxed()
+                .toList();
+
+        for (final var number : numbersToAdd) {
+            this.queue.enqueue(number);
+        }
+
+        Assertions.assertEquals(MAX_CAPACITY, this.queue.size());
+    }
+
 
 }

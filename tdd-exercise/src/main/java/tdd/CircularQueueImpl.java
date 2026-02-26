@@ -24,7 +24,9 @@ public class CircularQueueImpl implements CircularQueue {
     public void enqueue(int element) {
         rear = (rear + 1) % capacity;
         this.items[rear] = element;
-        size = size + 1;
+        if (size < capacity) {
+            size = size + 1;
+        }
     }
 
     @Override
@@ -38,6 +40,11 @@ public class CircularQueueImpl implements CircularQueue {
     @Override
     public int peek() {
         return this.items[front];
+    }
+
+    @Override
+    public int size() {
+        return size;
     }
 
 }
