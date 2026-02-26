@@ -28,6 +28,14 @@ public class CircularQueueImpl implements CircularQueue {
     }
 
     @Override
+    public int dequeue() {
+        final int enqueuedElement = this.items[front];
+        front = (front + 1) % capacity;
+        size = size - 1;
+        return enqueuedElement;
+    }
+
+    @Override
     public int peek() {
         return this.items[front];
     }

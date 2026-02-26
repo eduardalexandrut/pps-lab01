@@ -29,6 +29,13 @@ public interface CircularQueue {
     void enqueue(int element);
 
     /**
+     * Returns the element from the front of the queue
+     *
+     * @return element from the front of the queue
+     */
+    int dequeue();
+
+    /**
      * Should show the element at the front of the queue.
      *
      * @return the element at the front of the queue

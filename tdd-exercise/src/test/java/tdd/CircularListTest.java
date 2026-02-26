@@ -30,4 +30,12 @@ public class CircularListTest {
         Assertions.assertEquals(elementToPush, this.queue.peek());
     }
 
+    @Test
+    public void queDequeueShouldReturnTheElementFromTheFront() {
+        final int elementToPush = 10;
+        this.queue.enqueue(elementToPush);
+        final int dequeuedElement = this.queue.dequeue();
+        Assertions.assertEquals(elementToPush, dequeuedElement);
+    }
+
 }
